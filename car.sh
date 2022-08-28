@@ -1,3 +1,4 @@
+ set -e
  curl -sL https://rpm.nodesource.com/setup_lts.x | bash >/tmp/car.log
  yum install nodejs -y
  useradd roboshop
