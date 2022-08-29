@@ -1,4 +1,4 @@
- set -e
+
  curl -sL https://rpm.nodesource.com/setup_lts.x | bash >>/tmp/car.log
  echo $?
  yum install nodejs -y >>/tmp/car.log
