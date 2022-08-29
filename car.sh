@@ -1,5 +1,4 @@
  curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/cart.log
-
  yum install nodejs -y &>>/tmp/car.log
  useradd roboshop &>>/tmp/car.log
  curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip" &>>/tmp/car.log
