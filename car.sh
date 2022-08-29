@@ -79,4 +79,4 @@ else
    echo -e "\e[32SUCCESS\e[0m"
  else
    echo -e "\e[31FAILURE\e[0m"
-  fi
+fi
