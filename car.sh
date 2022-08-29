@@ -61,7 +61,7 @@
     fi
  systemctl daemon-reload &>>/tmp/cart.log
  systemctl start cart &>>/tmp/cart.log
- systemctl enable cart  systemctl enable cart
+ systemctl enable cart  systemctl enable cart &>>/tmp/cart.log
  if [ $? -eq 0 ];then
      echo SUCCESS
     else
