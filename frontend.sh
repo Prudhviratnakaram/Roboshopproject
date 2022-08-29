@@ -1,7 +1,12 @@
-!/usr/bin/bash
+#!/usr/bin/bash
+source common.sh
+COMPONENT=frontend
+echo "installing nginx"
 yum install nginx -y
+StatusCheck
 systemctl enable nginx
 systemctl start nginx
+echo "Download frontend"
 
 curl -s -L -o /tmp/frontend.zip "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
 cd /usr/share/nginx/html
