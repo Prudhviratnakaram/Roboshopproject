@@ -22,3 +22,12 @@ if [ USER_ID -ne 0];then
   echo "you should run this script as root userr"
   exit 1
 fi
+
+Download()
+{
+  echo "Downloading the ${component} Application content "
+  curl -s -L -o /tmp/${component} .zip "https://github.com/roboshop-devops-project/${component} /archive/main.zip" &>>/tmp/${component}.log
+  StatusCheck
+}
+log=&>>/tmp/${component}.log
+rm -f${log}
