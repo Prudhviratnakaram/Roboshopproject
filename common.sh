@@ -49,3 +49,25 @@ Java()
 }
 
 user=roboshop123
+Python()
+{
+  echo "Installing python"
+   yum install python36 gcc python3-devel -y &>>{log}
+   StatusCheck
+   echo "user add"
+   useradd roboshop &>>{log}
+   StatusCheck
+   cd /home/roboshop
+   rm -rf
+   echo "payement"
+   curl -L -s -o /tmp/payment.zip "https://github.com/roboshop-devops-project/payment/archive/main.zip" &>>{log}
+   unzip -o /tmp/payment.zip
+   mv payment-main payment
+   cd /home/roboshop/payment &>>{log}
+   StatusCheck
+   pip3 install -r requirements.txt &>>{log}
+   mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service &>>{log}
+   systemctl daemon-reload && systemctl enable payment && systemctl start payment
+   echo "done"
+   StatusCheck
+}
