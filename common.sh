@@ -18,8 +18,9 @@ Nodejs()
    useradd roboshop
 }
 USER_ID=$(id -u)
-if [ USER_ID -ne 0];then
-  echo "you should run this script as root userr"
+# shellcheck disable=SC2170
+if [ USER_ID -ne 0 ]; then
+  echo "you should run this script as root user"
   exit 1
 fi
 
@@ -29,5 +30,5 @@ Download()
   curl -s -L -o /tmp/${component} .zip "https://github.com/roboshop-devops-project/${component} /archive/main.zip" &>>/tmp/${component}.log
   StatusCheck
 }
-log=&>>/tmp/${component}.log
+log=/tmp/${component}.log
 rm -f${log}
