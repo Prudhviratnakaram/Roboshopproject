@@ -1,3 +1,3 @@
 component=payement
-souurce=common.sh
+source common.sh
 Python
