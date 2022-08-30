@@ -47,3 +47,5 @@ Java()
    StatusCheck
    systemctl daemon-reload && systemctl start shipping && systemctl enable shipping
 }
+
+user= roboshop123
