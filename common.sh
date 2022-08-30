@@ -34,6 +34,7 @@ log=/tmp/${component}.log
 rm -f${log}
 Java()
 {
+
    yum install maven -y &>>{log}
    StatusCheck
    cd /home/roboshop
@@ -52,12 +53,17 @@ user=roboshop123
 
 Python()
 {
+  if [ -z "$user" ];then
+    echo "dont proceed"
+    exit 1
+  fi
   echo "Installing python"
    yum install python36 gcc python3-devel -y &>>{log}
    StatusCheck
    echo "user add"
-   useradd roboshop &>>{log}
-   StatusCheck
+  rabbitmqctl list_users | grep roboshop &>>{log}
+   if [ $? -ne 0 ];then
+     echo "enabling the rabbitmq"
    cd /home/roboshop
    rm -rf
    echo "payement"
@@ -70,5 +76,6 @@ Python()
    mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service &>>{log}
    systemctl daemon-reload && systemctl enable payment && systemctl start payment
    echo "done"
+   fi
    StatusCheck
 }
