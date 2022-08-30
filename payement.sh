@@ -1,3 +1,3 @@
-scomponent=payemnet
+component=payemnet
 souurce=common.sh
 Python
