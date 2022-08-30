@@ -48,4 +48,4 @@ Java()
    systemctl daemon-reload && systemctl start shipping && systemctl enable shipping
 }
 
-user= roboshop123
+user=roboshop123
