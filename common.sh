@@ -35,7 +35,6 @@ rm -f${log}
 Java()
 {
    yum install maven -y
-   useradd roboshop
    StatusCheck
    cd /home/roboshop
    rm -rf shipping
