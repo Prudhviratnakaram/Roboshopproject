@@ -34,11 +34,11 @@ log=/tmp/${component}.log
 rm -f${log}
 Java()
 {
-   yum install maven -y
+   yum install maven -y &>>{log}
    StatusCheck
    cd /home/roboshop
    rm -rf shipping
-   curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/shipping/archive/main.zip"
+   curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/shipping/archive/main.zip" &>>{log}
    StatusCheck
    unzip -o /tmp/shipping.zip
    mv shipping-main shipping
