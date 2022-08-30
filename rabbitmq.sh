@@ -1,5 +1,6 @@
-source common.sh
 component=rabbitmq
+source common.sh
+
 if [ -z "$user" ];then
   echo "dont proceed"
   exit 1
@@ -10,8 +11,12 @@ echo "yum setup"
  StatusCheck
  echo "installing yum"
  yum install rabbitmq-server -y
- echo "enabling the rabbitmq"
+ rabbitmqctl list_users | grep roboshop &>>{log}
+ if [ $? -ne 0 ];then
+echo "enabling the rabbitmq"
  systemctl enable rabbitmq-server && systemctl start rabbitmq-server &>>{log}
  StatusCheck
  rabbitmqctl add_user roboshop ${user} && rabbitmqctl set_user_tags roboshop administrator && rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+ fi
+
  StatusCheck
