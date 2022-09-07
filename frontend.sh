@@ -12,7 +12,8 @@ cd /usr/share/nginx/html && rm -rf *
 StatusCheck
 echo "Download the extracted content"
 unzip /tmp/frontend.zip &>>${log}
-mv frontend-main/static/* . && mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
+mv frontend-main/static/* .
+mv frontend-main/localhost.conf /etc/nginx/default.d/roboshop.conf
 StatusCheck
 echo "start nginx"
 systemctl restart nginx &>>${log}
