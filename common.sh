@@ -35,7 +35,7 @@ Nodejs()
    cd ${component} &>>/tmp/${component}.log
    StatusCheck
 
-   echo installing the nodejs dependencies
+   echo installing the nodejs dependencies ${component}
    npm install &>>/tmp/${component}.log
    StatusCheck
     echo configuring the systemd service
