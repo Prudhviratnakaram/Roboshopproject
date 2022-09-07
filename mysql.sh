@@ -3,8 +3,8 @@
  yum install mysql-community-server -y
  systemctl enable mysqld
  systemctl start mysqld
- grep temp /var/log/mysqld.log
- mysql_secure_installation
+ deafault_password=$(sudo grep 'A temporary password' /var/log/mysqld.log | awk '{print$NF}')
+echo "lter user 'root'@'localhost' identified with mysql_native_password by 'RoboShop@1';" | mysql -uroot -p$(deafault_password)
  mysql -uroot -pRoboShop@1
 #> uninstall plugin validate_password;
  curl -s -L -o /tmp/mysql.zip "https://github.com/roboshop-devops-project/mysql/archive/main.zip"
