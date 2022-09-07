@@ -5,6 +5,7 @@
   unzip -o /tmp/dispatch.zip
   mv dispatch-main dispatch
   cd dispatch
+  rm -rf dispatch
   go mod init dispatch
   go get
   go build
