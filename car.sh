@@ -51,9 +51,7 @@ fi
      fi
 
  echo extracting the archive
- unzip -o /tmp/cart.zip &>>/tmp/car.log
- mv cart-main cart &>>/tmp/car.log
- cd cart &>>/tmp/car.log
+ unzip -o /tmp/cart.zip &>>/tmp/car.log &&  mv cart-main cart &>>/tmp/car.log &&  cd cart &>>/tmp/car.log
  if [ $? -eq 0 ];then
   echo "success"
   else
@@ -71,8 +69,7 @@ fi
     fi
 
  echo configuring the systemd service
- mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service &>>/tmp/car.log
- systemctl daemon-reload &>>/tmp/car.log
+ mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service &>>/tmp/car.log &&  systemctl daemon-reload &>>/tmp/car.log
  if [ $? -eq 0 ];then
   echo "success"
   else
@@ -81,8 +78,7 @@ fi
     fi
 
  echo starting the cart service
- systemctl start cart &>>/tmp/car.log
- systemctl enable cart &>>/tmp/car.log
+ systemctl start cart &>>/tmp/car.log && systemctl enable cart &>>/tmp/car.log
  if [ $? -eq 0 ];then
   echo "success"
   else
