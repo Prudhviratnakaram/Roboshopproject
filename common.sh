@@ -31,7 +31,7 @@ Nodejs()
    StatusCheck
 
    echo extracting the archive
-   unzip -o /tmp/${component}.zip &>>/tmp/${component}.log &&  mv ${component}-main ${component} &>>/tmp/${component}.log &&  cd ${component} &>>/tmp/${component}.log
+   unzip -o /tmp/${component}.zip &>>/tmp/${component}.log &&  mv cart-main ${component} &>>/tmp/${component}.log
    StatusCheck
 
    echo installing the nodejs dependencies
