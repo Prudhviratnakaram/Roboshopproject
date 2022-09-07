@@ -8,5 +8,5 @@ Nodejs
  StatusCheck
 
  echo starting the cart service
- systemctl start cart &>>/tmp/cart.log && systemctl enable cart &>>/tmp/cart.log
+ systemctl daemon-reload && systemctl start cart &>>/tmp/cart.log && systemctl enable cart &>>/tmp/cart.log
  StatusCheck
