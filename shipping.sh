@@ -1,4 +1,5 @@
- #!/usr/bin/bash
+#!/usr/bin/bash
+set -e
  yum install maven -y
  useradd roboshop
  cd /home/roboshop
