@@ -39,11 +39,10 @@ Nodejs()
    npm install &>>/tmp/${component}.log
    StatusCheck
     echo configuring the systemd service
-  mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service
-  systemctl daemon-reload
+  mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>/tmp/${component}.log  &&   systemctl daemon-reload  &>>/tmp/${component}.log
   StatusCheck
-  systemctl start ${component}
-  systemctl enable ${component}
+  echo "starting the ${component} service"
+  systemctl start ${component} &>>/tmp/${component}.log  && systemctl enable ${component} &>>/tmp/${component}.log
   StatusCheck
 }
 
