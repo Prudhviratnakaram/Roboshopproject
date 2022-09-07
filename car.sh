@@ -4,7 +4,7 @@ source common.sh
 
 Nodejs
  echo configuring the systemd service
- mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service &>>/tmp/cart.log &&  systemctl daemon-reload &>>/tmp/cart.log
+ mv /home/roboshop/cart/systemd.service /etc/systemd/system/cart.service &>>/tmp/cart.log
  StatusCheck
 
  echo starting the cart service
