@@ -19,7 +19,7 @@ if [ $? -eq 0 ];then
   echo "failure"
   exit 1
 fi
-id roboshopsuer &>>/tmp/car.log
+id roboshop &>>/tmp/car.log
 if [ $? -ne 0 ];then
  echo "adding the roboshopsuer"
  useradd roboshop &>>/tmp/car.log
