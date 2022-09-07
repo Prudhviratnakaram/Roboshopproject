@@ -17,7 +17,7 @@ Nodejs()
 
    useradd roboshop
 }
-USER_ID=$(id -u)
+USER_ID= $(id -u)
 # shellcheck disable=SC2170
 if [ USER_ID -ne 0 ]; then
   echo "you should run this script as root user"
