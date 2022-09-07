@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+!/usr/bin/bash
 source common.sh
 component=frontend
 echo "installing nginx"
