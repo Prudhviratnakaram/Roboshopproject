@@ -8,7 +8,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
     fi
 
 echo "installing node js"
@@ -17,7 +17,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
      fi
 
  echo "adding the roboshopsuer"
@@ -26,7 +26,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
      fi
 
  echo Downloading the App contennt
@@ -36,7 +36,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
      fi
 
  echo cleaning the old applicationn
@@ -45,7 +45,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
      fi
 
  echo extracting the archive
@@ -56,7 +56,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
      fi
 
  echo installing the nodejs dependencies
@@ -65,7 +65,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
     fi
 
  echo configuring the systemd service
@@ -75,7 +75,7 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
     fi
 
  echo starting the cart service
@@ -85,5 +85,5 @@ if [ $? -eq 0 ];then
   echo "success"
   else
     echo "failure"
-    exit
+    exit 1
     fi
