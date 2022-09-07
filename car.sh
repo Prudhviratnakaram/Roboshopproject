@@ -1,19 +1,8 @@
 #!/usr/bin/bash
 
 source common.sh
-echo "setting nodejs repos"
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/car.log
-StatusCheck
 
-echo "installing node js"
- yum install nodejs -y &>>/tmp/car.log
-StatusCheck
-id roboshop &>>/tmp/car.log
-if [ $? -ne 0 ];then
- echo "adding the roboshopsuer"
- useradd roboshop &>>/tmp/car.log
-StatusCheck
-fi
+Nodejs
 
  echo Downloading the App contennt
  curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip" &>>/tmp/car.log
