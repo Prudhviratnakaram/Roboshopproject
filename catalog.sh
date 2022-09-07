@@ -1,6 +1,9 @@
 #!/usr/bin/bash
-set -e
+source common.sh
+echo "configuring the nodejs reps"
  curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+ StatusCheck
+ echo "installing the nodejs"
  yum install nodejs -y
  useradd roboshop
  curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip"
