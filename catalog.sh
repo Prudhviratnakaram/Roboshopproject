@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-component=catalogue
+component=catalog
 source common.sh
 Nodejs
 
