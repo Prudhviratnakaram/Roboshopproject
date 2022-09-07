@@ -10,18 +10,33 @@ StatusCheck()
 Nodejs()
 {
   echo "setting nodejs repos"
-  curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/car.log
+  curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/${component}.log
   StatusCheck
 
   echo "installing node js"
-   yum install nodejs -y &>>/tmp/car.log
+   yum install nodejs -y &>>/tmp/${component}.log
   StatusCheck
-  id roboshop &>>/tmp/car.log
+  id roboshop &>>/tmp/${component}.log
   if [ $? -ne 0 ];then
    echo "adding the roboshopsuer"
-   useradd roboshop &>>/tmp/car.log
+   useradd roboshop &>>/tmp/${component}.log
   StatusCheck
   fi
+   echo Downloading the App contennt
+   curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip" &>>/tmp/${component}.log
+   cd /home/roboshop &>>/tmp/${component}.log
+   StatusCheck
+   echo cleaning the old applicationn
+   rm -rf ${component}. &>>/tmp/${component}.log
+   StatusCheck
+
+   echo extracting the archive
+   unzip -o /tmp/${component}.zip &>>/tmp/${component}.log &&  mv ${component}-main ${component} &>>/tmp/${component}.log &&  cd ${component} &>>/tmp/${component}.log
+   StatusCheck
+
+   echo installing the nodejs dependencies
+   npm install &>>/tmp/${component}.log
+   StatusCheck
 }
 
 
