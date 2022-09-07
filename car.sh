@@ -5,29 +5,31 @@ echo "setting nodejs repos"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>/tmp/car.log
 
 if [ $? -eq 0 ];then
-  echo "success"
+   echo "success"
   else
-    echo "failure"
-    exit 1
-    fi
+   echo "failure"
+   exit 1
+fi
 
 echo "installing node js"
  yum install nodejs -y &>>/tmp/car.log
 if [ $? -eq 0 ];then
   echo "success"
   else
-    echo "failure"
-    exit 1
-     fi
-
+  echo "failure"
+  exit 1
+fi
+id roboshopsuer &>>/tmp/car.log
+if [ $? -ne 0 ];then
  echo "adding the roboshopsuer"
- useradd roboshop
+ useradd roboshop &>>/tmp/car.log
  if [ $? -eq 0 ];then
   echo "success"
-  else
-    echo "failure"
-    exit 1
-     fi
+ else
+  echo "failure"
+  exit 1
+  fi
+fi
 
  echo Downloading the App contennt
  curl -s -L -o /tmp/cart.zip "https://github.com/roboshop-devops-project/cart/archive/main.zip" &>>/tmp/car.log
