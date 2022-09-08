@@ -62,18 +62,20 @@ rm -f${log}
 Java()
 {
 
+    echo "install maven"
    yum install maven -y &>>{log}
    StatusCheck
+  useradd roboshop
    cd /home/roboshop
-   rm -rf shipping
-   curl -s -L -o /tmp/shipping.zip "https://github.com/roboshop-devops-project/shipping/archive/main.zip" &>>{log}
+   rm -rf ${component}
+   curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip" &>>{log}
    StatusCheck
-   unzip -o /tmp/shipping.zip
-   mv shipping-main shipping
-   cd shipping
-   mvn clean package && mv target/shipping-1.0.jar shipping.jar && mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service &>>{log}
+   unzip -o /tmp/${component}.zip
+   mv ${component}-main ${component}
+   cd ${component}
+   mvn clean package && mv target/${component}-1.0.jar ${component}.jar && mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>{log}
    StatusCheck
-   systemctl daemon-reload && systemctl start shipping && systemctl enable shipping
+   systemctl daemon-reload && systemctl start ${component} && systemctl enable ${component}
 }
 
 user=roboshop123
