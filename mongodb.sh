@@ -11,6 +11,10 @@ echo Start mongodb service
  systemctl enable mongod &>>${log} && systemctl start mongod &>>${log}
  systemctl restart mongod
  echo update the listen config
+
+ echo "update the listeners update"
+ sed -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${log}
+ StatusCheck
 Download
 
 echo Extract the schema files
