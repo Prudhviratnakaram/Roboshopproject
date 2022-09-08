@@ -7,6 +7,10 @@ echo setup mrepo
  echo install the redis
  yum install redis-6.2.7 -y
  StatusCheck
+  StatusCheck
+   echo "update the listeners update"
+   sed -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf &>>${log}
+   StatusCheck
  echo enabling the redis service
  systemctl enable redis &>>${log} && systemctl start redis &>>${log}
  StatusCheck
