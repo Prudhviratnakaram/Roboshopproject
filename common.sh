@@ -22,12 +22,12 @@ Nodejs()
    useradd roboshop &>>/tmp/${component}.log
   StatusCheck
   fi
-   echo Downloading the App contennt
-   curl -s -L -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip" &>>/tmp/${component}.log
-   cd /home/roboshop &>>/tmp/${component}.log
+  Download
+
+
    StatusCheck
    echo cleaning the old applicationn
-   rm -rf ${component}. &>>/tmp/${component}.log
+    cd /home/roboshop &>>/tmp/${component}.log && rm -rf ${component}. &>>/tmp/${component}.log
    StatusCheck
 
    echo extracting the archive
@@ -51,10 +51,6 @@ if [ $USER_ID -ne 0 ];then
   echo"you should run this script as root user;"
   exit 1
   fi
-
-
-
-
 Download()
 {
   echo "Downloading the ${component} Application content "
