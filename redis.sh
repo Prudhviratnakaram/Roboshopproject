@@ -12,5 +12,5 @@ echo setup mrepo
    sed -i 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf &>>${log}
    StatusCheck
  echo enabling the redis service
- systemctl enable redis &>>${log} && systemctl start redis &>>${log}
+ systemctl enable redis &>>${log} && systemctl restart redis &>>${log}
  StatusCheck
