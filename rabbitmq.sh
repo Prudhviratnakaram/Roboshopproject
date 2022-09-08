@@ -2,9 +2,10 @@
   component=frontend
 source common.sh
 echo "installing the mrepos"
+  curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>>${log}
  yum install https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm -y &>>${log}
  StatusCheck
- curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>>${log}
+
   StatusCheck
  yum install rabbitmq-server -y &>>${log}
   StatusCheck
