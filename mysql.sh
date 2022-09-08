@@ -17,8 +17,8 @@ if [ -z "$MYSQL_PASSWORD" ];then
 echo "alter user 'root'@'localhost' identified with mysql_native_password by '$MYSQL_PASSWORD';" | mysql --connect-expired-password -uroot -p${DEAFAULT_PASSWORD}
 echo "uninstall plugin validate_password" |  mysql -uroot -p$MYSQL_PASSWORD
 fi
-echo 'show plugins;' | mysql -uroot -p$MYSQL_PASSWORD | grep validate_password &>>${log}
- if [ $? -ne 0 ];then
+echo 'show plugins;' | mysql -uroot -p$MYSQL_PASSWORD 2>&1| grep validate_password &>>${log}
+ if [ $? -eq 0 ];then
    echo Uninstall the plugin
   echo  "uninstall plugin validate_password;" | mysql -uroot -p$MYSQL_PASSWORD &>>${log}
    StatusCheck
