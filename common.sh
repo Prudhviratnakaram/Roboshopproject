@@ -96,14 +96,14 @@ Python()
    cd /home/roboshop
    rm -rf
    echo "payement"
-   curl -L -s -o /tmp/payment.zip "https://github.com/roboshop-devops-project/payment/archive/main.zip" &>>{log}
-   unzip -o /tmp/payment.zip
-   mv payment-main payment
-   cd /home/roboshop/payment &>>{log}
+   curl -L -s -o /tmp/${component}.zip "https://github.com/roboshop-devops-project/${component}/archive/main.zip" &>>{log}
+   unzip -o /tmp/${component}.zip
+   mv ${component}-main ${component}
+   cd /home/roboshop/${component} &>>{log}
    StatusCheck
    pip3 install -r requirements.txt &>>{log}
-   mv /home/roboshop/payment/systemd.service /etc/systemd/system/payment.service &>>{log}
-   systemctl daemon-reload && systemctl enable payment && systemctl start payment
+   mv /home/roboshop/${component}/systemd.service /etc/systemd/system/${component}.service &>>{log}
+   systemctl daemon-reload && systemctl enable ${component} && systemctl start ${component}
    echo "done"
    fi
    StatusCheck
