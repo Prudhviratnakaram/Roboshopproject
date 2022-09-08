@@ -8,7 +8,7 @@ echo Install MongoDb
  yum install -y mongodb-org &>>${log}
  StatusCheck
   echo "update the listeners update"
-  sed -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${log}
+  sed -i 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${log}
   StatusCheck
 
 echo Start mongodb service
