@@ -1,4 +1,10 @@
- set -e
+#!/usr/bin/bash
+  component=mysql
+source common.sh
+if [ -z "$MYSQL_PASSWORD" ];then
+  echo "variable password is missing"
+  exit 1
+  fi
  curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/roboshop-devops-project/mysql/main/mysql.repo
  yum install mysql-community-server -y
  systemctl enable mysqld
